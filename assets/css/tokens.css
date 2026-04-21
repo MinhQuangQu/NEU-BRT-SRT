@@ -1,68 +1,82 @@
 /* ============================================================
-   tokens.css — Design System Tokens for BRT-SRT Lab Website
+   tokens.css — SCLab-inspired Design Tokens
    ============================================================ */
 :root {
-  /* Primary — Royal Blue */
-  --color-primary:        #0D6EFD;
-  --color-primary-hover:  #0b5ed7;
-  --color-primary-active: #0a58ca;
-  --color-primary-light:  #e8f0fe;
+  /* Core colors */
+  --color-primary: #1B6EF3;
+  --color-primary-hover: #1558C7;
+  --color-accent-warm: #D4A843;
+  --color-accent-muted: #C8A96E;
 
-  /* Surfaces */
-  --color-bg:             #ffffff;
-  --color-surface:        #f8f9fa;
-  --color-surface-2:      #f1f3f5;
-  --color-border:         rgba(0,0,0,0.08);
+  --bg-page: #F7F7F5;
+  --bg-card: #FFFFFF;
+  --bg-hero: linear-gradient(135deg, #E8E8F4 0%, #F0D8E8 50%, #EDE8DC 100%);
+  --bg-dark-card: #1E1E2A;
 
-  /* Text */
-  --color-text:           #1a1a2e;
-  --color-text-muted:     #6c757d;
-  --color-text-faint:     #adb5bd;
+  --bg-chip-sci: #E8F0FF;
+  --bg-chip-if: #FFF3CD;
+  --bg-chip-jcr: #D1ECF1;
 
-  /* Accent gradient */
-  --gradient-hero: linear-gradient(135deg, #fdf0f8 0%, #f0f4ff 60%, #e8f0fe 100%);
-  --gradient-dark: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+  --text-primary: #12192C;
+  --text-body: #3D4455;
+  --text-muted: #8A8FA8;
+  --text-accent-warm: #D4A843;
+  --text-if: #856404;
+  --text-jcr: #0C5460;
 
-  /* Shadows */
-  --shadow-card:   0 2px 8px rgba(0,0,0,0.06), 0 0 1px rgba(0,0,0,0.04);
-  --shadow-hover:  0 8px 24px rgba(13,110,253,0.10), 0 2px 8px rgba(0,0,0,0.06);
-  --shadow-nav:    0 1px 0 rgba(0,0,0,0.08);
+  --color-border: #EBEBEB;
+  --color-border-soft: #E0E0E0;
+  --color-card-soft: #F5F5F5;
+
+  /* Typography */
+  --font-display: 'Manrope', 'Inter', sans-serif;
+  --font-body: 'Inter', 'Manrope', sans-serif;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2.25rem;
+  --text-hero: clamp(2.5rem, 5vw, 3.5rem);
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
 
   /* Radius */
-  --radius-sm:   0.375rem;
-  --radius-md:   0.625rem;
-  --radius-lg:   1rem;
-  --radius-xl:   1.5rem;
-  --radius-full: 9999px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-pill: 999px;
 
-  /* Type Scale (fluid) */
-  --text-xs:   clamp(0.75rem,  0.7rem + 0.25vw,  0.875rem);
-  --text-sm:   clamp(0.875rem, 0.8rem + 0.35vw,  1rem);
-  --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
-  --text-lg:   clamp(1.125rem, 1rem + 0.75vw,    1.5rem);
-  --text-xl:   clamp(1.5rem,   1.2rem + 1.25vw,  2.25rem);
-  --text-2xl:  clamp(2rem,     1.2rem + 2.5vw,   3.5rem);
+  /* Shadows */
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 6px rgba(0, 0, 0, 0.04);
+  --shadow-dropdown: 0 4px 20px rgba(0, 0, 0, 0.10);
+  --shadow-nav-scroll: 0 1px 8px rgba(0, 0, 0, 0.08);
 
-  /* Spacing (4px base) */
-  --space-1:  0.25rem;
-  --space-2:  0.5rem;
-  --space-3:  0.75rem;
-  --space-4:  1rem;
-  --space-6:  1.5rem;
-  --space-8:  2rem;
-  --space-12: 3rem;
-  --space-16: 4rem;
-  --space-20: 5rem;
+  /* Layout */
+  --content-max: 1100px;
+  --nav-height: 64px;
+  --section-gap: 64px;
 
-  /* Fonts */
-  --font-display: 'Manrope', 'Inter', sans-serif;
-  --font-body:    'Inter', 'Segoe UI', sans-serif;
-
-  /* Content widths */
-  --content-default: 960px;
-  --content-wide:    1200px;
-
-  /* Transitions */
-  --transition-fast: 150ms ease;
-  --transition-base: 200ms ease;
+  /* Motion */
+  --transition-fast: 100ms;
+  --transition-base: 150ms;
 }

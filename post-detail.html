@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Members</title>
-  <meta name="description" content="Current and alumni members of BRT-SRT Lab.">
+  <title>News Detail</title>
+  <meta name="description" content="News detail from BRT-SRT Lab.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,7 +26,7 @@
       </a>
 
       <ul class="nav-links" role="list">
-        <li><a href="post.html">News</a></li>
+        <li><a href="post.html" class="active">News</a></li>
         <li class="nav-item--dropdown">
           <button class="nav-trigger" type="button" aria-expanded="false">Papers v</button>
           <div class="nav-dropdown" role="menu">
@@ -41,7 +41,7 @@
             <a href="paper.html">Awards</a>
           </div>
         </li>
-        <li><a href="members.html" class="active">Members</a></li>
+        <li><a href="members.html">Members</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="mailto:brt-srt@neu.edu.vn?subject=Login%20Request" class="btn btn-primary nav-login">Login</a></li>
       </ul>
@@ -53,35 +53,18 @@
   <main>
     <section class="page-title-wrap">
       <div class="container page-title-inner">
-        <span class="meta-badge">MEMBERS</span>
-        <h1 class="page-title">People</h1>
-        <p class="page-subtitle" id="members-count">Loading members...</p>
+        <span class="meta-badge" id="news-detail-category">NEWS</span>
+        <h1 class="page-title" id="news-detail-title">Loading...</h1>
+        <p class="page-subtitle">By <span id="news-detail-author">Admin</span> | <span id="news-detail-date">Date</span></p>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
-        <div class="filter-row">
-          <div class="filter-tabs members-tabs" role="tablist" aria-label="Member category tabs">
-            <button class="tab tab--active" data-tab="current" type="button">Current Members</button>
-            <button class="tab" data-tab="alumni" type="button">Alumni</button>
-          </div>
-
-          <div>
-            <label class="filter-label" for="member-level-filter">Level</label>
-            <select id="member-level-filter" class="filter-select">
-              <option value="All">All</option>
-              <option value="professor">Professor</option>
-              <option value="research-professor">Research Professor</option>
-              <option value="phd">PhD</option>
-              <option value="ms">MS</option>
-              <option value="undergrad">Undergrad</option>
-              <option value="visiting">Visiting</option>
-            </select>
-          </div>
+        <article class="card news-detail-card" id="news-detail-body" aria-live="polite"></article>
+        <div style="margin-top: 20px;">
+          <a class="btn btn-outline" href="post.html">Back to News</a>
         </div>
-
-        <div id="members-container" aria-live="polite"></div>
       </div>
     </section>
   </main>
@@ -94,9 +77,9 @@
   </footer>
 
   <script src="assets/js/render.js"></script>
-  <script src="assets/js/map.js"></script>
+  <script src="assets/js/filter.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', initMembersPage);
+    document.addEventListener('DOMContentLoaded', initNewsDetailPage);
   </script>
 </body>
 </html>

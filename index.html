@@ -4,16 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
-  <meta name="description" content="BRT-SRT Lab at National Economics University conducts research in business analytics, smart technology, and digital transformation.">
-  <meta property="og:title" content="BRT-SRT Lab | National Economics University">
-  <meta property="og:description" content="Business Research and Smart Technology Lab at NEU">
+  <meta name="description" content="BRT-SRT Lab at National Economics University.">
+  <meta property="og:title" content="BRT-SRT Lab">
+  <meta property="og:description" content="Business Research and Smart Technology Lab">
   <meta property="og:image" content="assets/images/og-image.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="./index.html">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@300..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/base.css">
@@ -22,8 +22,8 @@
 <body>
   <header class="navbar">
     <div class="navbar__inner">
-      <a href="index.html" class="nav-logo" aria-label="BRT-SRT Lab Home">
-        <img src="assets/images/lab-logo.svg" alt="BRT-SRT logo" width="38" height="38">
+      <a href="index.html" class="nav-logo" aria-label="BRT-SRT Home">
+        <img src="assets/images/lab-logo.svg" alt="BRT-SRT logo" width="34" height="34">
         <span>
           <span class="nav-logo__text">BRT-SRT Lab</span>
           <span class="nav-logo__sub">National Economics University</span>
@@ -31,31 +31,42 @@
       </a>
 
       <ul class="nav-links" role="list">
-        <li><a href="index.html">Home</a></li>
         <li><a href="post.html">News</a></li>
-        <li><a href="paper.html">Papers</a></li>
+        <li class="nav-item--dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false">Papers v</button>
+          <div class="nav-dropdown" role="menu">
+            <a href="paper.html">All Papers</a>
+            <a href="paper.html?type=SCI">SCI</a>
+            <a href="paper.html?type=SCIE">SCIE</a>
+            <a href="paper.html?type=Conference">Conference</a>
+            <a href="paper.html">Patent</a>
+            <a href="paper.html">Program Signup</a>
+            <a href="paper.html">Datasets</a>
+            <a href="paper.html">Projects</a>
+            <a href="paper.html">Awards</a>
+          </div>
+        </li>
         <li><a href="members.html">Members</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="mailto:brt-srt@neu.edu.vn?subject=Login%20Request" class="btn btn-primary nav-login">Login</a></li>
       </ul>
 
-      <a href="mailto:brt-srt@neu.edu.vn?subject=Login%20Request" class="btn btn-primary">Login</a>
       <button class="nav-mobile-toggle" aria-label="Open menu" aria-expanded="false">&#9776;</button>
     </div>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="container container--wide">
-        <span class="hero__label">Research Excellence Since 2010</span>
-        <h1 class="hero__title">
-          Business Research and <span class="highlight">Smart Technology</span> for Real-World Impact
-        </h1>
-        <p class="hero__tagline" id="hero-tagline">
-          We explore AI-driven business innovation, digital transformation, and intelligent systems for sustainable economic growth.
-        </p>
-        <div class="hero__cta">
-          <a href="paper.html" class="btn btn-primary">Explore Research</a>
-          <a href="members.html" class="btn btn-outline">Meet the Team</a>
+    <section class="hero-wrap">
+      <div class="container">
+        <div class="hero-panel">
+          <h1 class="hero-title" id="hero-title">Smart Computing Laboratory</h1>
+          <p class="hero-tagline" id="hero-tagline">
+            Our research and projects span business analytics, emotional intelligence, and deep-learning-driven smart technology.
+          </p>
+          <div class="hero-cta">
+            <a href="paper.html" class="btn btn-primary">Explore Research</a>
+            <a href="members.html" class="btn btn-outline">Meet the Team</a>
+          </div>
         </div>
       </div>
     </section>
@@ -64,85 +75,25 @@
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">Research Areas</h2>
-          <p class="section-subtitle">Our core domains where business challenges meet data and intelligent technologies.</p>
         </div>
-        <div id="research-areas" class="member-grid"></div>
+        <div id="research-areas" class="research-grid"></div>
       </div>
     </section>
 
-    <section class="section section--surface">
+    <section class="section">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">Latest News</h2>
-          <p class="section-subtitle">Recent milestones, publications, and lab announcements.</p>
+          <h2 class="section-title">Lab News</h2>
         </div>
-        <div id="latest-news" class="papers-list"></div>
-        <div class="text-center mt-8">
-          <a href="post.html" class="btn btn-outline">View All News</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="stats-strip">
-      <div class="container container--wide">
-        <div class="stats-grid">
-          <div>
-            <span class="stat-number" data-target="0" id="stat-papers">0</span>
-            <span class="stat-label">Publications</span>
-          </div>
-          <div>
-            <span class="stat-number" data-target="0" id="stat-members">0</span>
-            <span class="stat-label">Members</span>
-          </div>
-          <div>
-            <span class="stat-number" data-target="12" id="stat-projects">0</span>
-            <span class="stat-label">Active Projects</span>
-          </div>
-          <div>
-            <span class="stat-number" data-target="0" id="stat-awards">0</span>
-            <span class="stat-label">Awards</span>
-          </div>
-        </div>
+        <div id="latest-news" class="home-news-list"></div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container">
-      <div class="footer__inner">
-        <div class="footer__brand">
-          <h3>BRT-SRT Lab</h3>
-          <p class="footer__address">National Economics University, Hanoi, Vietnam</p>
-          <p class="mt-4">
-            Email: <a class="footer__email" href="mailto:brt-srt@neu.edu.vn">brt-srt@neu.edu.vn</a>
-          </p>
-        </div>
-
-        <div class="footer__col">
-          <h4>Navigation</h4>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="post.html">News</a></li>
-            <li><a href="paper.html">Papers</a></li>
-            <li><a href="members.html">Members</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-
-        <div class="footer__col">
-          <h4>Resources</h4>
-          <ul>
-            <li><a href="post.html">Announcements</a></li>
-            <li><a href="paper.html">Research Outputs</a></li>
-            <li><a href="contact.html">Collaboration</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer__bottom">
-        <span>&copy; 2026 BRT-SRT Lab, National Economics University. All rights reserved.</span>
-        <span>Built for GitHub Pages</span>
-      </div>
+    <div class="container footer__minimal">
+      <span class="footer-contact-label">Contact us</span>
+      <a class="footer-email" href="mailto:brt-srt@neu.edu.vn">brt-srt@neu.edu.vn</a>
     </div>
   </footer>
 
@@ -150,81 +101,60 @@
   <script>
     async function initHomePage() {
       try {
-        const [lab, news, papers, members] = await Promise.all([
+        const [lab, news] = await Promise.all([
           fetchData('lab.json'),
-          fetchData('news.json'),
-          fetchData('papers.json'),
-          fetchData('members.json')
+          fetchData('news.json')
         ]);
+
+        const heroTitle = document.querySelector('#hero-title');
+        if (heroTitle) heroTitle.textContent = lab.name || 'BRT-SRT Lab';
+
+        const heroTagline = document.querySelector('#hero-tagline');
+        if (heroTagline && lab.research_areas) {
+          const topics = lab.research_areas.map((a) => a.title).slice(0, 3).join(', ');
+          heroTagline.textContent = `Our research and projects span ${topics}.`;
+        }
 
         const areasEl = document.querySelector('#research-areas');
         if (areasEl) {
-          areasEl.innerHTML = (lab.research_areas || []).map(area => `
-            <article class="card card--research">
+          const cards = (lab.research_areas || []).map((area) => `
+            <article class="card research-card">
               <div class="research-icon">${sanitize(area.icon || '')}</div>
               <h3 class="research-title">${sanitize(area.title || '')}</h3>
               <p class="research-desc">${sanitize(area.desc || '')}</p>
             </article>
-          `).join('');
+          `);
+          areasEl.innerHTML = cards.join('');
         }
-
-        const latestNews = [...news]
-          .sort((a, b) => (b.pinned ? 1 : 0) - (a.pinned ? 1 : 0) || (b.date > a.date ? 1 : -1))
-          .slice(0, 3);
 
         const latestNewsEl = document.querySelector('#latest-news');
         if (latestNewsEl) {
-          latestNewsEl.innerHTML = latestNews.map(item => {
-            const d = formatDate(item.date);
+          const latest = [...news]
+            .sort((a, b) => (b.pinned ? 1 : 0) - (a.pinned ? 1 : 0) || b.date.localeCompare(a.date))
+            .slice(0, 3);
+
+          latestNewsEl.innerHTML = latest.map((item) => {
+            const d = formatNewsDate(item.date);
             return `
-              <article class="card card--news">
-                <div class="date-badge">
-                  <span class="date-badge__year">${d.year}</span>
-                  <span class="date-badge__day">${d.day}</span>
+              <article class="card news-item news-item--compact">
+                <div class="news-date">
+                  <span class="news-date__day">${d.day}</span>
+                  <span class="news-date__month">${d.monthYear}</span>
                 </div>
-                <div>
-                  <h3 class="news-title">${sanitize(item.title)}</h3>
-                  <p class="news-body mt-4">${safeHTML(item.body || '')}</p>
+                <div class="news-main">
+                  <div class="news-meta">
+                    ${item.pinned ? '<span class="badge badge--pin">Pinned</span>' : ''}
+                    <span class="badge ${newsCategoryClass(item.category)}">${sanitize(item.category)}</span>
+                  </div>
+                  <a class="news-title" href="post-detail.html?id=${encodeURIComponent(item.id)}">${sanitize(item.title)}</a>
                 </div>
-                <div class="news-arrow">&#8594;</div>
-              </article>
-            `;
+                <a class="news-arrow" href="post-detail.html?id=${encodeURIComponent(item.id)}" aria-label="Open news">></a>
+              </article>`;
           }).join('');
         }
-
-        document.querySelector('#stat-papers').dataset.target = String(papers.length);
-        document.querySelector('#stat-members').dataset.target = String(members.filter(m => m.category === 'current').length);
-        document.querySelector('#stat-awards').dataset.target = String(news.filter(n => n.category === 'Awards').length);
-
-        animateStats();
-      } catch (err) {
-        console.error('initHomePage:', err);
+      } catch (e) {
+        console.error('initHomePage:', e);
       }
-    }
-
-    function animateStats() {
-      const statEls = document.querySelectorAll('.stat-number');
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          const el = entry.target;
-          const target = parseInt(el.dataset.target || '0', 10);
-          const duration = 1200;
-          const start = performance.now();
-
-          function tick(now) {
-            const progress = Math.min((now - start) / duration, 1);
-            const value = Math.floor(progress * target);
-            el.textContent = String(value);
-            if (progress < 1) requestAnimationFrame(tick);
-            else el.textContent = String(target);
-          }
-          requestAnimationFrame(tick);
-          observer.unobserve(el);
-        });
-      }, { threshold: 0.5 });
-
-      statEls.forEach(el => observer.observe(el));
     }
 
     document.addEventListener('DOMContentLoaded', initHomePage);

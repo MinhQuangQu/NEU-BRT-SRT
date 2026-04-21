@@ -3,17 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Publications</title>
-  <meta name="description" content="Publications from BRT-SRT Lab at National Economics University.">
-  <meta property="og:title" content="Publications | BRT-SRT Lab">
-  <meta property="og:description" content="Browse SCI, SCIE, conference, and other publications from BRT-SRT Lab.">
-  <meta property="og:image" content="assets/images/og-image.png">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="./paper.html">
+  <title>Papers</title>
+  <meta name="description" content="Publications from BRT-SRT Lab.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@300..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/base.css">
@@ -22,8 +17,8 @@
 <body>
   <header class="navbar">
     <div class="navbar__inner">
-      <a href="index.html" class="nav-logo" aria-label="BRT-SRT Lab Home">
-        <img src="assets/images/lab-logo.svg" alt="BRT-SRT logo" width="38" height="38">
+      <a href="index.html" class="nav-logo" aria-label="BRT-SRT Home">
+        <img src="assets/images/lab-logo.svg" alt="BRT-SRT logo" width="34" height="34">
         <span>
           <span class="nav-logo__text">BRT-SRT Lab</span>
           <span class="nav-logo__sub">National Economics University</span>
@@ -31,81 +26,65 @@
       </a>
 
       <ul class="nav-links" role="list">
-        <li><a href="index.html">Home</a></li>
         <li><a href="post.html">News</a></li>
-        <li><a href="paper.html">Papers</a></li>
+        <li class="nav-item--dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false">Papers v</button>
+          <div class="nav-dropdown" role="menu">
+            <a href="paper.html">All Papers</a>
+            <a href="paper.html?type=SCI">SCI</a>
+            <a href="paper.html?type=SCIE">SCIE</a>
+            <a href="paper.html?type=Conference">Conference</a>
+            <a href="paper.html">Patent</a>
+            <a href="paper.html">Program Signup</a>
+            <a href="paper.html">Datasets</a>
+            <a href="paper.html">Projects</a>
+            <a href="paper.html">Awards</a>
+          </div>
+        </li>
         <li><a href="members.html">Members</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="mailto:brt-srt@neu.edu.vn?subject=Login%20Request" class="btn btn-primary nav-login">Login</a></li>
       </ul>
 
-      <a href="mailto:brt-srt@neu.edu.vn?subject=Login%20Request" class="btn btn-primary">Login</a>
       <button class="nav-mobile-toggle" aria-label="Open menu" aria-expanded="false">&#9776;</button>
     </div>
   </header>
 
   <main>
-    <section class="page-hero">
-      <div class="container">
-        <h1 class="page-hero__title">Publications</h1>
-        <p class="page-hero__breadcrumb">Home / Publications</p>
+    <section class="page-title-wrap">
+      <div class="container page-title-inner">
+        <span class="meta-badge">PAPERS</span>
+        <h1 class="page-title">Publications</h1>
+        <p class="page-subtitle" id="paper-count">Loading publications...</p>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Research Outputs</h2>
-          <p class="section-subtitle" id="paper-count">Loading publications...</p>
-        </div>
-
-        <div class="filter-tabs" id="paper-tabs" role="tablist" aria-label="Publication types"></div>
-
-        <div style="display:flex;flex-wrap:wrap;gap:0.75rem;align-items:center;margin-bottom:1.5rem;">
-          <select id="paper-year" class="filter-select" aria-label="Filter by year"></select>
-          <div class="search-bar" role="search" style="max-width:460px;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            <input id="paper-search" type="search" placeholder="Search title, author, venue..." aria-label="Search publications">
+        <div class="filter-row">
+          <div>
+            <label for="paper-type" class="filter-label">Type</label>
+            <select id="paper-type" class="filter-select"></select>
+          </div>
+          <div class="search-wrap">
+            <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
+            </svg>
+            <input id="paper-search" class="search-input" type="search" placeholder="Search title, author, venue" aria-label="Search papers">
           </div>
         </div>
 
-        <div id="papers-list"></div>
+        <div id="papers-list" class="papers-list" aria-live="polite"></div>
+        <div id="paper-pagination" class="pagination" aria-label="Papers pagination"></div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container">
-      <div class="footer__inner">
-        <div class="footer__brand">
-          <h3>BRT-SRT Lab</h3>
-          <p class="footer__address">National Economics University, Hanoi, Vietnam</p>
-          <p class="mt-4">Email: <a class="footer__email" href="mailto:brt-srt@neu.edu.vn">brt-srt@neu.edu.vn</a></p>
-        </div>
-
-        <div class="footer__col">
-          <h4>Navigation</h4>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="post.html">News</a></li>
-            <li><a href="paper.html">Papers</a></li>
-            <li><a href="members.html">Members</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-
-        <div class="footer__col">
-          <h4>Resources</h4>
-          <ul>
-            <li><a href="post.html">Announcements</a></li>
-            <li><a href="contact.html">Collaboration</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer__bottom">
-        <span>&copy; 2026 BRT-SRT Lab, National Economics University. All rights reserved.</span>
-        <span>Built for GitHub Pages</span>
-      </div>
+    <div class="container footer__minimal">
+      <span class="footer-contact-label">Contact us</span>
+      <a class="footer-email" href="mailto:brt-srt@neu.edu.vn">brt-srt@neu.edu.vn</a>
     </div>
   </footer>
 

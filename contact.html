@@ -4,18 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact</title>
-  <meta name="description" content="Contact BRT-SRT Lab at National Economics University for collaboration, research, and student applications.">
-  <meta property="og:title" content="Contact | BRT-SRT Lab">
-  <meta property="og:description" content="Address, email, map location, and recruiting information for BRT-SRT Lab.">
-  <meta property="og:image" content="assets/images/og-image.png">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="./contact.html">
+  <meta name="description" content="Contact BRT-SRT Lab at National Economics University.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@300..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/components.css">
@@ -23,8 +18,8 @@
 <body>
   <header class="navbar">
     <div class="navbar__inner">
-      <a href="index.html" class="nav-logo" aria-label="BRT-SRT Lab Home">
-        <img src="assets/images/lab-logo.svg" alt="BRT-SRT logo" width="38" height="38">
+      <a href="index.html" class="nav-logo" aria-label="BRT-SRT Home">
+        <img src="assets/images/lab-logo.svg" alt="BRT-SRT logo" width="34" height="34">
         <span>
           <span class="nav-logo__text">BRT-SRT Lab</span>
           <span class="nav-logo__sub">National Economics University</span>
@@ -32,106 +27,94 @@
       </a>
 
       <ul class="nav-links" role="list">
-        <li><a href="index.html">Home</a></li>
         <li><a href="post.html">News</a></li>
-        <li><a href="paper.html">Papers</a></li>
+        <li class="nav-item--dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false">Papers v</button>
+          <div class="nav-dropdown" role="menu">
+            <a href="paper.html">All Papers</a>
+            <a href="paper.html?type=SCI">SCI</a>
+            <a href="paper.html?type=SCIE">SCIE</a>
+            <a href="paper.html?type=Conference">Conference</a>
+            <a href="paper.html">Patent</a>
+            <a href="paper.html">Program Signup</a>
+            <a href="paper.html">Datasets</a>
+            <a href="paper.html">Projects</a>
+            <a href="paper.html">Awards</a>
+          </div>
+        </li>
         <li><a href="members.html">Members</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+        <li><a href="mailto:brt-srt@neu.edu.vn?subject=Login%20Request" class="btn btn-primary nav-login">Login</a></li>
       </ul>
 
-      <a href="mailto:brt-srt@neu.edu.vn?subject=Login%20Request" class="btn btn-primary">Login</a>
       <button class="nav-mobile-toggle" aria-label="Open menu" aria-expanded="false">&#9776;</button>
     </div>
   </header>
 
   <main>
-    <section class="page-hero">
-      <div class="container">
-        <h1 class="page-hero__title">Contact and Location</h1>
-        <p class="page-hero__breadcrumb">Home / Contact</p>
+    <section class="page-title-wrap">
+      <div class="container page-title-inner">
+        <span class="meta-badge">CONTACT</span>
+        <h1 class="page-title">Get in Touch</h1>
+        <p class="page-subtitle">Visit us on campus or send us your collaboration ideas.</p>
       </div>
     </section>
 
     <section class="section">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Get in Touch</h2>
-          <p class="section-subtitle">Open for research collaboration, student supervision, and industry partnerships.</p>
-        </div>
-
-        <div class="contact-grid">
+      <div class="container contact-layout">
+        <div class="contact-panel">
           <article class="card contact-card">
-            <div class="contact-icon">&#128205;</div>
-            <div class="contact-info">
-              <h4 id="contact-name">BRT-SRT Lab</h4>
-              <p id="contact-univ">National Economics University</p>
-              <p id="contact-address" class="mt-4"></p>
-              <p id="contact-room"></p>
+            <div class="contact-row">
+              <span class="contact-label">Lab</span>
+              <strong id="contact-name">BRT-SRT Lab</strong>
+            </div>
+            <div class="contact-row">
+              <span class="contact-label">University</span>
+              <span id="contact-university"></span>
+            </div>
+            <div class="contact-row">
+              <span class="contact-label">Address</span>
+              <span id="contact-address"></span>
+            </div>
+            <div class="contact-row">
+              <span class="contact-label">Room</span>
+              <span id="contact-room"></span>
+            </div>
+            <div class="contact-row">
+              <span class="contact-label">Phone</span>
+              <a id="contact-phone" href="#"></a>
+            </div>
+            <div class="contact-row">
+              <span class="contact-label">Email</span>
+              <a id="contact-email-link" href="mailto:"><span id="contact-email"></span></a>
             </div>
           </article>
 
-          <article class="card contact-card">
-            <div class="contact-icon">&#9993;</div>
-            <div class="contact-info">
-              <h4>Contact Information</h4>
-              <p><a id="contact-email" href="mailto:brt-srt@neu.edu.vn">brt-srt@neu.edu.vn</a></p>
-              <p id="contact-phone"></p>
-            </div>
+          <article id="recruit-card-wrap" class="card recruit-card">
+            <h3>We are recruiting</h3>
+            <p>
+              We welcome motivated students and collaborators in AI, business analytics, and smart systems.
+              Send your CV and research interests to apply.
+            </p>
+            <a id="apply-btn" class="btn btn-primary" href="#">Apply now</a>
           </article>
         </div>
 
-        <div class="map-container card" style="padding:0;">
-          <div id="map" style="width:100%;height:100%;"></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="recruit-banner" id="recruit-banner">
-      <div class="container">
-        <h2>We Are Recruiting New Researchers</h2>
-        <p>Join our lab as a PhD, MS, or undergraduate researcher and work on impactful projects at the intersection of AI and business innovation.</p>
-        <a id="apply-btn" href="mailto:brt-srt@neu.edu.vn?subject=Lab%20Application" class="btn btn-primary">Apply Now</a>
+        <article class="card contact-map-card">
+          <div id="map" class="map" aria-label="Lab location map"></div>
+        </article>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container">
-      <div class="footer__inner">
-        <div class="footer__brand">
-          <h3>BRT-SRT Lab</h3>
-          <p class="footer__address">National Economics University, Hanoi, Vietnam</p>
-          <p class="mt-4">Email: <a class="footer__email" href="mailto:brt-srt@neu.edu.vn">brt-srt@neu.edu.vn</a></p>
-        </div>
-
-        <div class="footer__col">
-          <h4>Navigation</h4>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="post.html">News</a></li>
-            <li><a href="paper.html">Papers</a></li>
-            <li><a href="members.html">Members</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-
-        <div class="footer__col">
-          <h4>Resources</h4>
-          <ul>
-            <li><a href="paper.html">Publications</a></li>
-            <li><a href="post.html">Announcements</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer__bottom">
-        <span>&copy; 2026 BRT-SRT Lab, National Economics University. All rights reserved.</span>
-        <span>Built for GitHub Pages</span>
-      </div>
+    <div class="container footer__minimal">
+      <span class="footer-contact-label">Contact us</span>
+      <a class="footer-email" href="mailto:brt-srt@neu.edu.vn">brt-srt@neu.edu.vn</a>
     </div>
   </footer>
 
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
   <script src="assets/js/render.js"></script>
   <script src="assets/js/map.js"></script>
   <script>

@@ -1,13 +1,9 @@
 /* ============================================================
-   render.js — Generic JSON → DOM renderer utilities
+   render.js - Generic JSON to DOM renderer utilities
    ============================================================ */
 
 'use strict';
 
-/**
- * Fetch JSON data from _data/ folder with cache-busting for dev.
- * @param {string} file — filename inside _data/ (e.g. 'members.json')
- */
 async function fetchData(file) {
   const url = `./_data/${file}`;
   const res = await fetch(url);
@@ -15,14 +11,12 @@ async function fetchData(file) {
   return res.json();
 }
 
-/** Sanitize basic HTML (allow em, strong, a, br only). */
-function sanitize(html) {
+function sanitize(value) {
   const tmp = document.createElement('div');
-  tmp.textContent = html;
+  tmp.textContent = String(value ?? '');
   return tmp.innerHTML;
 }
 
-/** Allow only safe subset of HTML tags in body text. */
 function safeHTML(input) {
   if (!input) return '';
   return input
@@ -33,105 +27,141 @@ function safeHTML(input) {
     .replace(/&lt;\/em&gt;/g, '</em>')
     .replace(/&lt;strong&gt;/g, '<strong>')
     .replace(/&lt;\/strong&gt;/g, '</strong>')
-    .replace(/&lt;br\s*\/?&gt;/g, '<br>');
+    .replace(/&lt;br\s*\/?&gt;/g, '<br>')
+    .replace(/&lt;p&gt;/g, '<p>')
+    .replace(/&lt;\/p&gt;/g, '</p>')
+    .replace(/&lt;ul&gt;/g, '<ul>')
+    .replace(/&lt;\/ul&gt;/g, '</ul>')
+    .replace(/&lt;li&gt;/g, '<li>')
+    .replace(/&lt;\/li&gt;/g, '</li>');
 }
 
-/** Render a list of items into a container using a template function. */
-function renderList(selector, items, templateFn) {
+function renderList(selector, items, templateFn, emptyText = 'No items found.') {
   const container = document.querySelector(selector);
   if (!container) return;
   if (!items || items.length === 0) {
     container.innerHTML = `
       <div class="empty-state">
-        <div class="empty-state__icon">📭</div>
-        <p class="empty-state__text">No items found.</p>
+        <div class="empty-state__icon">-</div>
+        <p class="empty-state__text">${sanitize(emptyText)}</p>
       </div>`;
     return;
   }
   container.innerHTML = items.map(templateFn).join('');
 }
 
-/** Format date string to display format. */
-function formatDate(dateStr) {
-  if (!dateStr) return '';
-  const [y, m, d] = dateStr.split('-');
-  return { year: y, day: `${m}.${d}` };
+function monthShort(month) {
+  const arr = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+  return arr[Math.max(0, Math.min(11, month - 1))] || 'JAN';
 }
 
-/** Get badge class for news category. */
+function formatNewsDate(dateStr) {
+  const [year, month, day] = (dateStr || '').split('-').map((v) => parseInt(v, 10));
+  if (!year || !month || !day) {
+    return { day: '--', monthYear: '--- --', year: '', iso: '' };
+  }
+  const mm = monthShort(month);
+  const yy = String(year).slice(-2);
+  return {
+    day: String(day).padStart(2, '0'),
+    monthYear: `${mm} ${yy}`,
+    year: String(year),
+    iso: `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`,
+  };
+}
+
 function newsCategoryClass(cat) {
   const map = {
+    Notice: 'badge--notice',
     Awards: 'badge--awards',
+    Award: 'badge--awards',
     Publication: 'badge--publication',
     Event: 'badge--event',
-    Notice: 'badge--notice',
   };
   return map[cat] || 'badge--category';
 }
 
-/** Get JCR badge class. */
-function jcrClass(jcr) {
-  if (!jcr) return '';
-  if (jcr === 'Q1') return 'badge--jcr-q1';
-  if (jcr === 'Q2') return 'badge--jcr-q2';
-  return 'badge--jcr-q3';
-}
-
-/** Highlight current nav link based on current page. */
 function setActiveNav() {
   const page = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-links a').forEach(a => {
-    const href = a.getAttribute('href').split('/').pop() || 'index.html';
-    if (href === page || (page === '' && href === 'index.html')) {
-      a.classList.add('active');
+  document.querySelectorAll('.nav-links a').forEach((link) => {
+    const href = (link.getAttribute('href') || '').split('?')[0];
+    const target = href.split('/').pop();
+    if (target && target === page) {
+      link.classList.add('active');
+      const parentDropdown = link.closest('.nav-item--dropdown');
+      if (parentDropdown) parentDropdown.classList.add('open');
     }
   });
 }
 
-/** Mobile nav toggle. */
-function initMobileNav() {
-  const toggle = document.querySelector('.nav-mobile-toggle');
+function initNavbarInteractions() {
+  const nav = document.querySelector('.navbar');
+  const mobileBtn = document.querySelector('.nav-mobile-toggle');
   const navLinks = document.querySelector('.nav-links');
-  if (!toggle || !navLinks) return;
-  toggle.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', navLinks.classList.contains('open'));
+
+  const onScroll = () => {
+    if (!nav) return;
+    if (window.scrollY > 10) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  if (mobileBtn && navLinks) {
+    mobileBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      mobileBtn.setAttribute('aria-expanded', navLinks.classList.contains('open') ? 'true' : 'false');
+    });
+  }
+
+  const dropdowns = document.querySelectorAll('.nav-item--dropdown');
+  dropdowns.forEach((item) => {
+    const trigger = item.querySelector('.nav-trigger');
+    if (!trigger) return;
+    trigger.addEventListener('click', (e) => {
+      if (window.matchMedia('(max-width: 640px)').matches) {
+        e.preventDefault();
+        item.classList.toggle('open');
+        trigger.setAttribute('aria-expanded', item.classList.contains('open') ? 'true' : 'false');
+      }
+    });
   });
-  // Close on outside click
+
   document.addEventListener('click', (e) => {
-    if (!toggle.contains(e.target) && !navLinks.contains(e.target)) {
-      navLinks.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
+    const target = e.target;
+    if (!target.closest('.navbar')) {
+      if (navLinks) navLinks.classList.remove('open');
+      dropdowns.forEach((item) => item.classList.remove('open'));
     }
   });
 }
 
-/** Populate nav & footer lab name from lab.json. */
 async function initSiteShell() {
   try {
     const lab = await fetchData('lab.json');
-    // Nav logo
     const logoText = document.querySelector('.nav-logo__text');
-    if (logoText) logoText.textContent = lab.short_name;
     const logoSub = document.querySelector('.nav-logo__sub');
-    if (logoSub) logoSub.textContent = lab.university;
-    // Footer
-    const footerBrand = document.querySelector('.footer__brand h3');
-    if (footerBrand) footerBrand.textContent = lab.name;
-    const footerAddr = document.querySelector('.footer__address');
-    if (footerAddr) footerAddr.textContent = lab.address;
-    const footerEmail = document.querySelector('.footer__email');
-    if (footerEmail) { footerEmail.textContent = lab.email; footerEmail.href = `mailto:${lab.email}`; }
-    // Page title prefix
+    if (logoText) logoText.textContent = lab.short_name || lab.name;
+    if (logoSub) logoSub.textContent = lab.university || '';
+
+    const footerContact = document.querySelector('.footer-contact-label');
+    const footerEmail = document.querySelector('.footer-email');
+    if (footerContact) footerContact.textContent = 'Contact us';
+    if (footerEmail) {
+      footerEmail.textContent = lab.email || '';
+      footerEmail.href = `mailto:${lab.email || ''}`;
+    }
+
     const titleEl = document.querySelector('title');
     if (titleEl && !titleEl.dataset.set) {
-      titleEl.textContent = `${titleEl.textContent} | ${lab.short_name}`;
+      titleEl.textContent = `${titleEl.textContent} | ${lab.short_name || lab.name || 'Lab'}`;
       titleEl.dataset.set = '1';
     }
-  } catch (e) { console.warn('initSiteShell:', e); }
+  } catch (e) {
+    console.warn('initSiteShell:', e);
+  }
 }
 
-/** Client-side pagination helper */
 function paginate(items, page, perPage) {
   const start = (page - 1) * perPage;
   return items.slice(start, start + perPage);
@@ -140,24 +170,41 @@ function paginate(items, page, perPage) {
 function renderPagination(selector, total, current, perPage, onPageChange) {
   const container = document.querySelector(selector);
   if (!container) return;
-  const totalPages = Math.ceil(total / perPage);
-  if (totalPages <= 1) { container.innerHTML = ''; return; }
 
-  let html = `<button class="pagination__btn" ${current === 1 ? 'disabled' : ''} data-page="${current - 1}">&#8592;</button>`;
-  for (let i = 1; i <= totalPages; i++) {
+  const totalPages = Math.ceil(total / perPage);
+  if (totalPages <= 1) {
+    container.innerHTML = '';
+    return;
+  }
+
+  let html = `<button class="pagination__btn pagination__prev" ${current === 1 ? 'disabled' : ''} data-page="${current - 1}"><</button>`;
+  for (let i = 1; i <= totalPages; i += 1) {
     html += `<button class="pagination__btn ${i === current ? 'pagination__btn--active' : ''}" data-page="${i}">${i}</button>`;
   }
-  html += `<button class="pagination__btn" ${current === totalPages ? 'disabled' : ''} data-page="${current + 1}">&#8594;</button>`;
+  html += `<button class="pagination__btn pagination__next" ${current === totalPages ? 'disabled' : ''} data-page="${current + 1}">></button>`;
 
   container.innerHTML = html;
-  container.querySelectorAll('.pagination__btn:not([disabled])').forEach(btn => {
-    btn.addEventListener('click', () => onPageChange(parseInt(btn.dataset.page)));
+  container.querySelectorAll('.pagination__btn:not([disabled])').forEach((btn) => {
+    btn.addEventListener('click', () => onPageChange(parseInt(btn.dataset.page, 10)));
   });
 }
 
-// Init on every page
+async function copyText(text, trigger) {
+  if (!text) return;
+  try {
+    await navigator.clipboard.writeText(text);
+    if (trigger) {
+      const prev = trigger.getAttribute('aria-label') || 'Copy';
+      trigger.setAttribute('aria-label', 'Copied');
+      setTimeout(() => trigger.setAttribute('aria-label', prev), 1200);
+    }
+  } catch (e) {
+    console.warn('copyText failed:', e);
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   setActiveNav();
-  initMobileNav();
+  initNavbarInteractions();
   initSiteShell();
 });
