@@ -8,6 +8,16 @@
     "department": "Faculty of Information Systems",
     "affiliation": "National Economics University",
     "photo": "assets/images/members/prof-nguyen.svg",
+    "teams": [
+      {
+        "name": "BRT",
+        "image": "assets/images/BRT.jpg"
+      },
+      {
+        "name": "SRT",
+        "image": "assets/images/SRT.jpg"
+      }
+    ],
     "email": "nguyenvana@neu.edu.vn",
     "scholar": "https://scholar.google.com/",
     "homepage": "",
@@ -24,6 +34,12 @@
     "department": "Faculty of Information Systems",
     "affiliation": "National Economics University",
     "photo": "assets/images/members/dr-tran.svg",
+    "teams": [
+      {
+        "name": "BRT",
+        "image": "assets/images/BRT.jpg"
+      }
+    ],
     "email": "tranthib@neu.edu.vn",
     "scholar": "https://scholar.google.com/",
     "homepage": "",
@@ -40,6 +56,12 @@
     "department": "Faculty of Information Systems",
     "affiliation": "National Economics University",
     "photo": "assets/images/members/le-minh-khoa.svg",
+    "teams": [
+      {
+        "name": "SRT",
+        "image": "assets/images/SRT.jpg"
+      }
+    ],
     "email": "leminhkhoa@neu.edu.vn",
     "scholar": "",
     "homepage": "",
@@ -72,6 +94,16 @@
     "department": "Faculty of Information Systems",
     "affiliation": "National Economics University",
     "photo": "assets/images/members/do-quang-minh.svg",
+    "teams": [
+      {
+        "name": "BRT",
+        "image": "assets/images/BRT.jpg"
+      },
+      {
+        "name": "SRT",
+        "image": "assets/images/SRT.jpg"
+      }
+    ],
     "email": "doquangminh@neu.edu.vn",
     "scholar": "",
     "homepage": "",
@@ -88,6 +120,12 @@
     "department": "Faculty of Information Systems",
     "affiliation": "National Economics University",
     "photo": "assets/images/members/vu-lan-anh.svg",
+    "teams": [
+      {
+        "name": "BRT",
+        "image": "assets/images/BRT.jpg"
+      }
+    ],
     "email": "vulananh@neu.edu.vn",
     "scholar": "",
     "homepage": "",
@@ -104,6 +142,12 @@
     "department": "Faculty of Information Systems",
     "affiliation": "National Economics University",
     "photo": "assets/images/members/nguyen-bao-long.svg",
+    "teams": [
+      {
+        "name": "SRT",
+        "image": "assets/images/SRT.jpg"
+      }
+    ],
     "email": "nguyenbaolong@neu.edu.vn",
     "scholar": "",
     "homepage": "",
@@ -136,6 +180,16 @@
     "department": "Faculty of Information Systems",
     "affiliation": "National Economics University",
     "photo": "assets/images/members/mai-phuong-thao.svg",
+    "teams": [
+      {
+        "name": "BRT",
+        "image": "assets/images/BRT.jpg"
+      },
+      {
+        "name": "SRT",
+        "image": "assets/images/SRT.jpg"
+      }
+    ],
     "email": "maiphuongthao@gmail.com",
     "scholar": "",
     "homepage": "",

@@ -136,8 +136,11 @@
   position: absolute;
   top: 50%;
   left: 14px;
+  width: 18px;
+  height: 18px;
   transform: translateY(-50%);
   color: var(--text-muted);
+  pointer-events: none;
 }
 
 .search-wrap svg circle,
@@ -564,6 +567,52 @@
   margin-top: 2px;
   font-size: var(--text-sm);
   color: var(--text-muted);
+}
+
+.member-teams {
+  margin-top: var(--space-3);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.member-team-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.member-team-list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.member-team-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px 4px 4px;
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-pill);
+  background: #FFFFFF;
+}
+
+.member-team-item img {
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 1px solid var(--color-border-soft);
+}
+
+.member-team-name {
+  font-size: 12px;
+  color: var(--text-body);
+  font-weight: var(--fw-medium);
 }
 
 .member-links {

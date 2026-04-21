@@ -161,7 +161,7 @@ async function initNewsDetailPage() {
 /* ---------------- PAPERS ---------------- */
 const PAPERS_PER_PAGE = 8;
 let allPapers = [];
-let papersState = { type: 'All', query: '', page: 1 };
+let papersState = { query: '', page: 1 };
 
 async function initPapersPage() {
   try {
@@ -169,24 +169,6 @@ async function initPapersPage() {
   } catch (e) {
     console.error('initPapersPage:', e);
     return;
-  }
-
-  const typeSelect = document.querySelector('#paper-type');
-  if (typeSelect) {
-    const types = ['All', ...new Set(allPapers.map((p) => p.type))];
-    typeSelect.innerHTML = types.map((t) => `<option value="${t}">${t}</option>`).join('');
-
-    const queryType = new URLSearchParams(window.location.search).get('type');
-    if (queryType && types.includes(queryType)) {
-      papersState.type = queryType;
-      typeSelect.value = queryType;
-    }
-
-    typeSelect.addEventListener('change', () => {
-      papersState.type = typeSelect.value;
-      papersState.page = 1;
-      renderPapersPage();
-    });
   }
 
   const searchInput = document.querySelector('#paper-search');
@@ -204,7 +186,6 @@ async function initPapersPage() {
 function filteredPapers() {
   const q = papersState.query;
   return allPapers
-    .filter((p) => papersState.type === 'All' || p.type === papersState.type)
     .filter((p) => {
       if (!q) return true;
       const authors = (p.authors || []).join(' ').toLowerCase();

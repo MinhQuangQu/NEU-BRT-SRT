@@ -1,138 +1,343 @@
 [
-  {
-    "id": "paper-2024-001",
-    "title": "Explainable AI for Credit Risk Assessment in Vietnamese Commercial Banks",
-    "authors": ["Nguyen Van An", "Le Minh Khoa", "Do Quang Minh"],
-    "venue": "Expert Systems with Applications",
-    "type": "SCI",
-    "year": 2024,
-    "volume": "238",
-    "pages": "121823",
-    "doi": "https://doi.org/10.1016/j.eswa.2024.121823",
-    "pdf": "",
-    "if": 8.5,
-    "jcr": "Q1",
-    "abstract": "This paper presents an explainable AI framework for credit risk assessment tailored to Vietnamese commercial banking contexts, combining gradient boosting with SHAP-based interpretability.",
-    "keywords": ["explainable AI", "credit risk", "banking", "SHAP", "gradient boosting"],
-    "highlighted": true
-  },
-  {
-    "id": "paper-2024-002",
-    "title": "Digital Transformation Maturity Assessment Framework for SMEs in Emerging Markets",
-    "authors": ["Tran Thi Bich", "Pham Thu Ha", "Nguyen Van An"],
-    "venue": "Journal of Business Research",
-    "type": "SCIE",
-    "year": 2024,
-    "volume": "176",
-    "pages": "114583",
-    "doi": "https://doi.org/10.1016/j.jbusres.2024.114583",
-    "pdf": "",
-    "if": 11.3,
-    "jcr": "Q1",
-    "abstract": "We propose a five-stage digital transformation maturity model validated through survey data from 312 Vietnamese SMEs, providing actionable roadmaps for practitioners.",
-    "keywords": ["digital transformation", "maturity model", "SMEs", "Vietnam"],
-    "highlighted": true
-  },
-  {
-    "id": "paper-2024-003",
-    "title": "Blockchain-Based Supply Chain Transparency for Agricultural Products in Vietnam",
-    "authors": ["Tran Thi Bich", "Nguyen Bao Long"],
-    "venue": "Computers & Industrial Engineering",
-    "type": "SCI",
-    "year": 2024,
-    "volume": "190",
-    "pages": "109987",
-    "doi": "https://doi.org/10.1016/j.cie.2024.109987",
-    "pdf": "",
-    "if": 7.9,
-    "jcr": "Q1",
-    "abstract": "A blockchain prototype for agricultural supply chain traceability is developed and piloted with three cooperatives in northern Vietnam, achieving 94% stakeholder satisfaction.",
-    "keywords": ["blockchain", "supply chain", "agriculture", "traceability"],
-    "highlighted": false
-  },
-  {
-    "id": "paper-2023-001",
-    "title": "Sentiment Analysis of Customer Reviews for Vietnamese E-Commerce Platforms Using PhoBERT",
-    "authors": ["Vu Lan Anh", "Le Minh Khoa", "Nguyen Van An"],
-    "venue": "IEEE Access",
-    "type": "SCIE",
-    "year": 2023,
-    "volume": "11",
-    "pages": "45671-45684",
-    "doi": "https://doi.org/10.1109/ACCESS.2023.3271234",
-    "pdf": "",
-    "if": 3.9,
-    "jcr": "Q2",
-    "abstract": "We fine-tune PhoBERT for Vietnamese aspect-based sentiment analysis on a novel dataset of 50,000 reviews scraped from Shopee and Tiki, outperforming existing baselines by 4.3% F1.",
-    "keywords": ["PhoBERT", "sentiment analysis", "Vietnamese NLP", "e-commerce"],
-    "highlighted": false
-  },
-  {
-    "id": "paper-2023-002",
-    "title": "Knowledge Graph Embedding for Product Recommendation in Retail",
-    "authors": ["Hoang Duc Trung", "Nguyen Van An"],
-    "venue": "Information Processing & Management",
-    "type": "SCI",
-    "year": 2023,
-    "volume": "60",
-    "pages": "103289",
-    "doi": "https://doi.org/10.1016/j.ipm.2023.103289",
-    "pdf": "",
-    "if": 8.6,
-    "jcr": "Q1",
-    "abstract": "A knowledge graph-augmented collaborative filtering model is proposed for retail product recommendation, leveraging entity relationships to address cold-start challenges.",
-    "keywords": ["knowledge graph", "recommendation system", "cold-start", "retail"],
-    "highlighted": false
-  },
-  {
-    "id": "paper-2023-003",
-    "title": "Deep Learning Approaches for Financial Fraud Detection: A Systematic Review",
-    "authors": ["Do Quang Minh", "Tran Thi Bich", "Nguyen Van An"],
-    "venue": "Applied Soft Computing",
-    "type": "SCI",
-    "year": 2023,
-    "volume": "143",
-    "pages": "110389",
-    "doi": "https://doi.org/10.1016/j.asoc.2023.110389",
-    "pdf": "",
-    "if": 7.2,
-    "jcr": "Q1",
-    "abstract": "This systematic review analyzes 127 deep learning papers on financial fraud detection published 2018–2023, identifying key architectures, datasets, and open challenges.",
-    "keywords": ["deep learning", "fraud detection", "fintech", "systematic review"],
-    "highlighted": false
-  },
-  {
-    "id": "paper-2022-001",
-    "title": "A Hybrid LSTM-Attention Model for Stock Price Prediction in Emerging Markets",
-    "authors": ["Le Minh Khoa", "Nguyen Van An", "Hoang Duc Trung"],
-    "venue": "ICIS 2022 – International Conference on Information Systems",
-    "type": "Conference",
-    "year": 2022,
-    "volume": "",
-    "pages": "",
-    "doi": "https://aisel.aisnet.org/icis2022/",
-    "pdf": "",
-    "if": null,
-    "jcr": null,
-    "abstract": "We propose a hybrid LSTM-attention architecture for short-term stock price prediction on the Ho Chi Minh Stock Exchange, achieving superior RMSE over baseline models.",
-    "keywords": ["LSTM", "attention mechanism", "stock prediction", "Vietnam"],
-    "highlighted": false
-  },
-  {
-    "id": "paper-2022-002",
-    "title": "Factors Influencing Mobile Payment Adoption Among Vietnamese Millennials",
-    "authors": ["Tran Thi Bich", "Mai Phuong Thao"],
-    "venue": "Tạp chí Kinh tế và Phát triển (Journal of Economics and Development)",
-    "type": "KCI",
-    "year": 2022,
-    "volume": "295",
-    "pages": "12-24",
-    "doi": "",
-    "pdf": "",
-    "if": null,
-    "jcr": null,
-    "abstract": "Using a TAM-extended model, we survey 450 Vietnamese millennials to identify the key determinants of mobile payment adoption, with perceived security and social influence as top predictors.",
-    "keywords": ["mobile payment", "TAM", "Vietnam", "millennials"],
-    "highlighted": false
-  }
+    {
+        "id":  "ulziisaikhan2026band2clean",
+        "title":  "Band2CleanFormer: Integrating band-specific processing and inter-band attention for robust EEG denoising",
+        "authors":  [
+                        "Battulga Ulziisaikhan",
+                        "Nguyen Trong-Nghia",
+                        "Soo-Hyung Kim"
+                    ],
+        "venue":  "Biomedical Signal Processing and Control",
+        "type":  "Journal",
+        "year":  2026,
+        "volume":  "119",
+        "pages":  "109860",
+        "doi":  "https://doi.org/10.1016/j.bspc.2026.109860",
+        "pdf":  "",
+        "if":  null,
+        "jcr":  null,
+        "abstract":  "",
+        "keywords":  [
+                         "EEG denoising",
+                         "Band-specific processing",
+                         "Deep learning",
+                         "Artifact removal",
+                         "Transformer neural network"
+                     ],
+        "highlighted":  false
+    },
+    {
+        "id":  "nguyen2026medifusion",
+        "title":  "MediFusion-Flex: An Adaptive Multimodal Deep Learning Framework for Clinical Deterioration Prediction in Emergency Medicine",
+        "authors":  [
+                        "Nguyen Trong-Nghia",
+                        "Hong-Hai Nguyen",
+                        "Ngoc Tu Vu",
+                        "Tuan Anh Tran",
+                        "Soo-Hyung Kim",
+                        "Bo-Gun Kho",
+                        "Van-Thong Huynh"
+                    ],
+        "venue":  "Multi-disciplinary Trends in Artificial Intelligence (MIWAI 2025)",
+        "type":  "Conference",
+        "year":  2026,
+        "volume":  "16355",
+        "pages":  "115--126",
+        "doi":  "https://doi.org/10.1007/978-981-95-4963-4_10",
+        "pdf":  "",
+        "if":  null,
+        "jcr":  null,
+        "abstract":  "",
+        "keywords":  [
+
+                     ],
+        "highlighted":  false
+    },
+    {
+        "id":  "10559396tvae",
+        "title":  "Temporal Variational Autoencoder Model for In-hospital Clinical Emergency Prediction",
+        "authors":  [
+                        "Nguyen Trong-Nghia",
+                        "Soo-Hyung Kim",
+                        "Bo-Gun Kho",
+                        "Do Nhu-Tai",
+                        "Ngumimi-Karen Iyortsuun",
+                        "Hyung-Jeong Yang"
+                    ],
+        "venue":  "Journal of Biomedical Signal Processing and Control",
+        "type":  "Journal",
+        "year":  2025,
+        "volume":  "100",
+        "pages":  "106975",
+        "doi":  "https://doi.org/10.1016/j.bspc.2024.106975",
+        "pdf":  "",
+        "if":  null,
+        "jcr":  null,
+        "abstract":  "",
+        "keywords":  [
+                         "Task analysis",
+                         "Predictive models",
+                         "Training",
+                         "Hospitals",
+                         "Medical diagnostic imaging",
+                         "Testing",
+                         "Intelligent systems"
+                     ],
+        "highlighted":  false
+    },
+    {
+        "id":  "nguyen2025dualstream",
+        "title":  "Dual-stream transformer approach for pain assessment using visual-physiological data modeling",
+        "authors":  [
+                        "Nguyen M",
+                        "Yang H",
+                        "Dao D",
+                        "Kim S",
+                        "Kim S",
+                        "Shin J",
+                        "Nguyen NAT",
+                        "Nguyen T"
+                    ],
+        "venue":  "PeerJ Computer Science",
+        "type":  "Journal",
+        "year":  2025,
+        "volume":  "11",
+        "pages":  "e3158",
+        "doi":  "https://doi.org/10.7717/peerj-cs.3158",
+        "pdf":  "",
+        "if":  null,
+        "jcr":  null,
+        "abstract":  "",
+        "keywords":  [
+
+                     ],
+        "highlighted":  false
+    },
+    {
+        "id":  "nguyen2024federated",
+        "title":  "Explainable Deep Contrastive Federated Learning System for Early Prediction of Clinical Status in Intensive Care Unit",
+        "authors":  [
+                        "Nguyen Trong-Nghia",
+                        "Hyung-Jeong Yang",
+                        "Bo-Gun Kho",
+                        "Sae-Ryung Kang",
+                        "Soo-Hyung Kim"
+                    ],
+        "venue":  "IEEE Access",
+        "type":  "Journal",
+        "year":  2024,
+        "volume":  "12",
+        "pages":  "117176-117202",
+        "doi":  "https://doi.org/10.1109/ACCESS.2024.3447759",
+        "pdf":  "",
+        "if":  null,
+        "jcr":  null,
+        "abstract":  "",
+        "keywords":  [
+
+                     ],
+        "highlighted":  false
+    },
+    {
+        "id":  "nguyen2024siamese",
+        "title":  "Multi-Gradient Siamese Temporal Model for the Prediction of Clinical Events in Rapid Response Systems",
+        "authors":  [
+                        "Nguyen Trong-Nghia",
+                        "Soo-Hyung Kim",
+                        "Bo-Gun Kho",
+                        "Hyung-Jeong Yang"
+                    ],
+        "venue":  "IEEE Intelligent Systems",
+        "type":  "Journal",
+        "year":  2024,
+        "volume":  "",
+        "pages":  "1-12",
+        "doi":  "https://doi.org/10.1109/MIS.2024.3408290",
+        "pdf":  "",
+        "if":  null,
+        "jcr":  null,
+        "abstract":  "",
+        "keywords":  [
+                         "Task analysis",
+                         "Predictive models",
+                         "Training",
+                         "Hospitals",
+                         "Medical diagnostic imaging",
+                         "Testing",
+                         "Intelligent systems"
+                     ],
+        "highlighted":  false
+    },
+    {
+        "id":  "tulga2024",
+        "title":  "A Hybrid CNN-LSTM Approach for Effective Denoising of EEG Signals Contaminated by EOG Artifacts",
+        "authors":  [
+                        "Battulga Ulziisaikhan",
+                        "Trong-Nghia Nguyen",
+                        "Soo-Hyung Kim"
+                    ],
+        "venue":  "Proceedings of Annual Conference of Korea Information Processing Society (ACK2024)",
+        "type":  "Conference",
+        "year":  2024,
+        "volume":  "",
+        "pages":  "573--576",
+        "doi":  "https://www.manuscriptlink.com/society/kips/conference/ack2024/programBook/presentation/pdf/oral/KIPS_C2024B0140",
+        "pdf":  "",
+        "if":  null,
+        "jcr":  null,
+        "abstract":  "",
+        "keywords":  [
+
+                     ],
+        "highlighted":  false
+    },
+    {
+        "id":  "vu2023ensemble",
+        "title":  "Ensemble spatial and temporal vision transformer for action units detection",
+        "authors":  [
+                        "Vu Ngoc Tu",
+                        "Huynh Van Thong",
+                        "Nguyen Trong Nghia",
+                        "Kim Soo-Hyung"
+                    ],
+        "venue":  "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPRW)",
+        "type":  "Conference",
+        "year":  2023,
+        "volume":  "",
+        "pages":  "5770--5776",
+        "doi":  "https://ieeexplore.ieee.org/document/10208411",
+        "pdf":  "",
+        "if":  null,
+        "jcr":  null,
+        "abstract":  "",
+        "keywords":  [
+
+                     ],
+        "highlighted":  false
+    },
+    {
+        "id":  "nguyen2022tabnet",
+        "title":  "A TabNet-Based System for Water Quality Prediction in Aquaculture",
+        "authors":  [
+                        "Nguyen Trong-Nghia",
+                        "Soo Hyung Kim",
+                        "Nhu-Tai Do",
+                        "Thai-Thi Ngoc Hong",
+                        "Hyung Jeong Yang",
+                        "Guee Sang Lee"
+                    ],
+        "venue":  "Smart Media Journal",
+        "type":  "Journal",
+        "year":  2022,
+        "volume":  "11",
+        "pages":  "39--52",
+        "doi":  "https://doi.org/10.30693/SMJ.2022.11.2.39",
+        "pdf":  "",
+        "if":  null,
+        "jcr":  null,
+        "abstract":  "",
+        "keywords":  [
+
+                     ],
+        "highlighted":  false
+    },
+    {
+        "id":  "nguyen2022deep",
+        "title":  "Deep learning-based model for rapid prediction of in-hospital clinical deterioration",
+        "authors":  [
+                        "Nguyen Trong-Nghia",
+                        "Kho Bo-Gun",
+                        "Yang Hyung-Jeong",
+                        "Kim Soo-Hyung"
+                    ],
+        "venue":  "Proceedings of the 10th International Conference on Big Data Applications and Services (BIGDAS2022)",
+        "type":  "Conference",
+        "year":  2022,
+        "volume":  "",
+        "pages":  "81--88",
+        "doi":  "https://nghianguyen7171.github.io/assets/pdf/Deep%20learning-based%20model%20for%20rapid%20prediction%20of%20in-hospital%20clinical%20deterioration.pdf",
+        "pdf":  "",
+        "if":  null,
+        "jcr":  null,
+        "abstract":  "",
+        "keywords":  [
+
+                     ],
+        "highlighted":  false
+    },
+    {
+        "id":  "sma2022",
+        "title":  "Stress analysis based on feature-level late fusion",
+        "authors":  [
+                        "Eun-Bin Choi",
+                        "Hong-Hai Nguyen",
+                        "Nguyen Trong Nghia",
+                        "Kim Soo-Hyung"
+                    ],
+        "venue":  "Proc. Int. Conf. Smart Media and Applications (SMA2022), Oct. 2022.",
+        "type":  "Conference",
+        "year":  2022,
+        "volume":  "",
+        "pages":  "110-114",
+        "doi":  "https://manuscriptlink-society-file.s3-ap-northeast-1.amazonaws.com/kism/conference/sma2022fall/abs/0023F.pdf",
+        "pdf":  "",
+        "if":  null,
+        "jcr":  null,
+        "abstract":  "",
+        "keywords":  [
+
+                     ],
+        "highlighted":  false
+    },
+    {
+        "id":  "nguyen2021deep",
+        "title":  "Deep Interpretable Learning for a Rapid Response System",
+        "authors":  [
+                        "Nguyen Trong-Nghia",
+                        "Vo Thanh-Hung",
+                        "Bo-Gun Kho",
+                        "Guee-Sang Lee",
+                        "Hyung-Jeong Yang",
+                        "Soo-Hyung Kim"
+                    ],
+        "venue":  "Proceedings of the Korea Information Processing Society Conference (KIPS)",
+        "type":  "Conference",
+        "year":  2021,
+        "volume":  "",
+        "pages":  "805--807",
+        "doi":  "https://koreascience.or.kr/article/CFKO202133648994961.page",
+        "pdf":  "",
+        "if":  null,
+        "jcr":  null,
+        "abstract":  "",
+        "keywords":  [
+
+                     ],
+        "highlighted":  false
+    },
+    {
+        "id":  "nguyen2020feature",
+        "title":  "How feature fusion can help to improve multi-shot person re-identification performance?",
+        "authors":  [
+                        "Thuy-Binh Nguyen",
+                        "Nguyen Trong-Nghia",
+                        "Hong-Quan Nguyen",
+                        "Thi-Lan Le",
+                        "Thi Thanh Thuy Pham"
+                    ],
+        "venue":  "2020 International Conference on Multimedia Analysis and Pattern Recognition (MAPR)",
+        "type":  "Conference",
+        "year":  2020,
+        "volume":  "",
+        "pages":  "1--6",
+        "doi":  "https://ieeexplore.ieee.org/document/9237782",
+        "pdf":  "",
+        "if":  null,
+        "jcr":  null,
+        "abstract":  "",
+        "keywords":  [
+
+                     ],
+        "highlighted":  false
+    }
 ]

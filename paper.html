@@ -3,95 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Papers</title>
-  <meta name="description" content="Publications from BRT-SRT Lab.">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="assets/css/tokens.css">
-  <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="stylesheet" href="assets/css/components.css">
+  <title>Redirecting to Publication</title>
+  <meta http-equiv="refresh" content="0; url=publication.html">
+  <link rel="canonical" href="publication.html">
+  <script>
+    window.location.replace('publication.html');
+  </script>
 </head>
 <body>
-  <header class="navbar">
-    <div class="navbar__inner">
-      <a href="index.html" class="nav-logo" aria-label="BRT-SRT Home">
-        <img src="assets/images/lab-logo.svg" alt="BRT-SRT logo" width="34" height="34">
-        <span>
-          <span class="nav-logo__text">BRT-SRT Lab</span>
-          <span class="nav-logo__sub">National Economics University</span>
-        </span>
-      </a>
-
-      <ul class="nav-links" role="list">
-        <li><a href="post.html">News</a></li>
-        <li class="nav-item--dropdown">
-          <button class="nav-trigger" type="button" aria-expanded="false">Papers v</button>
-          <div class="nav-dropdown" role="menu">
-            <a href="paper.html">All Papers</a>
-            <a href="paper.html?type=SCI">SCI</a>
-            <a href="paper.html?type=SCIE">SCIE</a>
-            <a href="paper.html?type=Conference">Conference</a>
-            <a href="paper.html">Patent</a>
-            <a href="paper.html">Program Signup</a>
-            <a href="paper.html">Datasets</a>
-            <a href="paper.html">Projects</a>
-            <a href="paper.html">Awards</a>
-          </div>
-        </li>
-        <li><a href="members.html">Members</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="mailto:brt-srt@neu.edu.vn?subject=Login%20Request" class="btn btn-primary nav-login">Login</a></li>
-      </ul>
-
-      <button class="nav-mobile-toggle" aria-label="Open menu" aria-expanded="false">&#9776;</button>
-    </div>
-  </header>
-
-  <main>
-    <section class="page-title-wrap">
-      <div class="container page-title-inner">
-        <span class="meta-badge">PAPERS</span>
-        <h1 class="page-title">Publications</h1>
-        <p class="page-subtitle" id="paper-count">Loading publications...</p>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="filter-row">
-          <div>
-            <label for="paper-type" class="filter-label">Type</label>
-            <select id="paper-type" class="filter-select"></select>
-          </div>
-          <div class="search-wrap">
-            <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="11" cy="11" r="8"></circle>
-              <path d="m21 21-4.35-4.35"></path>
-            </svg>
-            <input id="paper-search" class="search-input" type="search" placeholder="Search title, author, venue" aria-label="Search papers">
-          </div>
-        </div>
-
-        <div id="papers-list" class="papers-list" aria-live="polite"></div>
-        <div id="paper-pagination" class="pagination" aria-label="Papers pagination"></div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer__minimal">
-      <span class="footer-contact-label">Contact us</span>
-      <a class="footer-email" href="mailto:brt-srt@neu.edu.vn">brt-srt@neu.edu.vn</a>
-    </div>
-  </footer>
-
-  <script src="assets/js/render.js"></script>
-  <script src="assets/js/filter.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', initPapersPage);
-  </script>
+  <p>Redirecting to <a href="publication.html">publication page</a>...</p>
 </body>
 </html>

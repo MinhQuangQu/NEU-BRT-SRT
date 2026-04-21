@@ -5,9 +5,12 @@ Static academic lab website for BRT-SRT Lab at National Economics University.
 ## Pages
 - `index.html` — Home
 - `post.html` — News
-- `paper.html` — Publications
+- `publication.html` — Publications
 - `members.html` — Members
 - `contact.html` — Contact
+
+Legacy route:
+- `paper.html` redirects to `publication.html`
 
 ## Data-Driven Content
 All content is managed through JSON files in `_data/`:
@@ -44,7 +47,8 @@ Then open:
 ### Add a member
 1. Add photo to `assets/images/members/{member-id}.jpg`
 2. Append new object in `_data/members.json`
-3. Commit and push
+3. Optional: add `teams` array for team badges, each item supports `{ "name": "BRT", "image": "assets/images/BRT.jpg" }`
+4. Commit and push
 
 ### Add a paper
 1. Optionally add PDF in `assets/papers/`

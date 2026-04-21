@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>News Detail</title>
-  <meta name="description" content="News detail from BRT-SRT Lab.">
+  <title>Publication</title>
+  <meta name="description" content="Publications from BRT-SRT Lab.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,8 +26,8 @@
       </a>
 
       <ul class="nav-links" role="list">
-        <li><a href="post.html" class="active">News</a></li>
-        <li><a href="publication.html">Publication</a></li>
+        <li><a href="post.html">News</a></li>
+        <li><a href="publication.html" class="active">Publication</a></li>
         <li><a href="members.html">Members</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="mailto:brt-srt@neu.edu.vn?subject=Login%20Request" class="btn btn-primary nav-login">Login</a></li>
@@ -40,18 +40,26 @@
   <main>
     <section class="page-title-wrap">
       <div class="container page-title-inner">
-        <span class="meta-badge" id="news-detail-category">NEWS</span>
-        <h1 class="page-title" id="news-detail-title">Loading...</h1>
-        <p class="page-subtitle">By <span id="news-detail-author">Admin</span> | <span id="news-detail-date">Date</span></p>
+        <span class="meta-badge">PUBLICATION</span>
+        <h1 class="page-title">Publication</h1>
+        <p class="page-subtitle" id="paper-count">Loading papers...</p>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
-        <article class="card news-detail-card" id="news-detail-body" aria-live="polite"></article>
-        <div style="margin-top: 20px;">
-          <a class="btn btn-outline" href="post.html">Back to News</a>
+        <div class="filter-row">
+          <div class="search-wrap">
+            <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
+            </svg>
+            <input id="paper-search" class="search-input" type="search" placeholder="Search title, author, venue" aria-label="Search papers">
+          </div>
         </div>
+
+        <div id="papers-list" class="papers-list" aria-live="polite"></div>
+        <div id="paper-pagination" class="pagination" aria-label="Papers pagination"></div>
       </div>
     </section>
   </main>
@@ -66,7 +74,7 @@
   <script src="assets/js/render.js"></script>
   <script src="assets/js/filter.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', initNewsDetailPage);
+    document.addEventListener('DOMContentLoaded', initPapersPage);
   </script>
 </body>
 </html>

@@ -119,9 +119,58 @@ async function initMembersPage() {
   renderMembersPage();
 }
 
+function inferTeamNameFromImage(imagePath) {
+  const fileName = String(imagePath || '').split('/').pop() || '';
+  const baseName = fileName.split('.')[0] || '';
+  return (baseName || 'Team').toUpperCase();
+}
+
+function normalizeMemberTeams(teams) {
+  if (!Array.isArray(teams)) return [];
+
+  return teams
+    .map((team) => {
+      if (typeof team === 'string') {
+        const image = team.trim();
+        if (!image) return null;
+        return {
+          name: inferTeamNameFromImage(image),
+          image,
+        };
+      }
+
+      if (!team || typeof team !== 'object') return null;
+
+      const image = String(team.image || team.src || '').trim();
+      if (!image) return null;
+
+      return {
+        name: String(team.name || team.label || inferTeamNameFromImage(image)).trim(),
+        image,
+      };
+    })
+    .filter(Boolean);
+}
+
 function memberRowTemplate(member, isAlumni) {
   const photo = member.photo || '';
   const role = member.role || ROLE_LABELS[member.level] || '';
+  const teams = normalizeMemberTeams(member.teams);
+  const teamMarkup = teams.length
+    ? `
+      <div class="member-teams">
+        <span class="member-team-label">Team</span>
+        <div class="member-team-list">
+          ${teams
+            .map((team) => `
+              <span class="member-team-item" title="${sanitize(team.name)}">
+                <img src="${sanitize(team.image)}" alt="${sanitize(team.name)} logo" loading="lazy" onerror="this.closest('.member-team-item').style.display='none'">
+                <span class="member-team-name">${sanitize(team.name)}</span>
+              </span>`)
+            .join('')}
+        </div>
+      </div>`
+    : '';
 
   return `
     <article class="card member-row ${isAlumni ? 'is-alumni' : ''}">
@@ -134,6 +183,7 @@ function memberRowTemplate(member, isAlumni) {
         <p class="member-role">${sanitize(role)}</p>
         ${member.department ? `<p class="member-dept">${sanitize(member.department)}</p>` : ''}
         ${member.affiliation ? `<p class="member-affiliation">${sanitize(member.affiliation)}</p>` : ''}
+        ${teamMarkup}
         ${isAlumni && member.graduated ? `<p class="member-grad">Graduation year: ${sanitize(member.graduated)}</p>` : ''}
       </div>
       <div class="member-links">
