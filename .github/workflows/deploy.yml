@@ -1,7 +1,9 @@
-name: Deploy GitHub Pages
+name: Validate GitHub Pages
 
 on:
   push:
+    branches: [main]
+  pull_request:
     branches: [main]
   workflow_dispatch:
 
@@ -12,7 +14,82 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Validate JSON data files
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          data_dir = Path('_data')
+          files = sorted(data_dir.glob('*.json'))
+          if not files:
+              raise SystemExit('No JSON files found in _data/')
+
+          for path in files:
+              with path.open(encoding='utf-8') as f:
+                  json.load(f)
+              print(f'OK: {path}')
+          PY
+
+      - name: Validate required site files
+        run: |
+          required_files=(
+            index.html
+            members.html
+            publication.html
+            post.html
+            post-detail.html
+            contact.html
+            404.html
+            robots.txt
+            sitemap.xml
+          )
+
+          for file in "${required_files[@]}"; do
+            test -f "$file" || { echo "Missing required file: $file"; exit 1; }
+          done
+
+      - name: Check local asset and page references
+        run: |
+          python - <<'PY'
+          import re
+          from pathlib import Path
+          from urllib.parse import urlsplit
+
+          html_files = list(Path('.').glob('*.html'))
+          attr_re = re.compile(r'(?:href|src)=["\']([^"\']+)["\']', re.IGNORECASE)
+          missing = []
+
+          for html in html_files:
+              text = html.read_text(encoding='utf-8')
+              for ref in attr_re.findall(text):
+                  if ref.startswith(('http://', 'https://', 'mailto:', 'tel:', '#', 'javascript:')):
+                      continue
+
+                  path = urlsplit(ref).path
+                  if not path:
+                      continue
+
+                  target = Path(path.lstrip('/')) if path.startswith('/') else html.parent / path
+                  if target.exists():
+                      continue
+
+                  # GitHub Pages may serve extensionless links to .html files.
+                  if target.suffix == '' and target.with_suffix('.html').exists():
+                      continue
+
+                  missing.append(f'{html}: {ref}')
+
+          if missing:
+              print('Broken local references:')
+              for item in missing:
+                  print(f'  - {item}')
+              raise SystemExit(1)
+
+          print(f'Checked {len(html_files)} HTML files; no broken local references found.')
+          PY
+
       - name: Pages deployment mode
         run: |
           echo "GitHub Pages is configured in repository settings to deploy from main branch (/)."
-          echo "No artifact deployment step is required in this mode."
+          echo "This workflow validates the static site before changes land on main."
